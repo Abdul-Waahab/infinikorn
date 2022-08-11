@@ -8,7 +8,7 @@ filenames_Dubai.sort!
 filenames_Murree.sort!
 filenames_lahore.sort!
 
- filenames_Dubai
+ 
  puts "Enter  Year: "
  year = gets.chomp
 
@@ -21,7 +21,7 @@ max_temp=-1000
 max_temp_date=""
 min_temp=1000
 min_temp_date=""
-max_humidity=-1000
+max_humidity=-0
 max_humidity_date=""
 
 
@@ -31,6 +31,7 @@ file_name=""
 countLahore=0
 countDubai=0
 countMurree=0
+
 cities.each do |city|
     month.each do |mon|
         
@@ -61,7 +62,7 @@ cities.each do |city|
 
                 size = csv['Min TemperatureC'].size
                 
-                for i in 0...size
+                for i in 0...size 
                     
                     if min_temp.to_i > csv['Min TemperatureC'][i].to_i
                         min_temp = csv['Min TemperatureC'][i]
@@ -73,8 +74,8 @@ cities.each do |city|
                 
                 for i in 0...size
                     
-                    if max_Humidity.to_i < csv['Max Humidity'].to_i[i].to_i
-                        max_Humidity = csv['Max Humidity'].to_i[i]
+                    if max_humidity.to_i < csv['Max Humidity'][i].to_i
+                        max_humidity = csv['Max Humidity'][i]
                         max_humidity_date= csv['GST'][i]
 
                     end
@@ -124,8 +125,8 @@ cities.each do |city|
                 
                 for i in 0...size
                    
-                    if max_Humidity.to_i < csv['Max Humidity'].to_i[i].to_i
-                        max_Humidity = csv['Max Humidity'].to_i[i]
+                    if max_humidity.to_i < csv['Max Humidity'][i].to_i
+                        max_humidity = csv['Max Humidity'][i]
                         max_humidity_date= csv['PKT'][i]
                         
                     end
@@ -174,8 +175,8 @@ cities.each do |city|
                 
                 for i in 0...size
                     # puts "in loop"    # ... tells ruby to exclude the last number (here 10 if we .. only then it includes the last num)
-                    if max_Humidity.to_i < csv['Max Humidity'].to_i[i].to_i
-                        max_Humidity = csv['Max Humidity'].to_i[i]
+                    if max_humidity.to_i < csv['Max Humidity'][i].to_i
+                        max_hmidity = csv['Max Humidity'][i]
                         max_humidity_date= csv['PKT'][i]
                         # puts "max"
                     end
@@ -198,5 +199,5 @@ puts "Max Temperature: #{max_temp}"
 puts "ON Date: #{max_temp_date}" 
 puts "Min Temperature: #{min_temp}"
 puts "ON Date: #{min_temp_date}"
-puts "Max Humidity: #{max_Humidity}"
-puts "ON Date: #{max_humidity_date}"
+puts "Max Humidity: #{max_humidity}"
+# puts "ON Date: #{max_humidity_date}"
